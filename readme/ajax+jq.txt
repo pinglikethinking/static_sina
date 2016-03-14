@@ -1,0 +1,29 @@
+<!--以下效果只有在虚拟机下设置好了才可用
+<!--事件绑定-->
+$('#search_input').bind('keyup',function(){
+	var searchText=$('#search_input').val();
+	$.get('http://api.bing.com/qsonhs.aspx?q='+searchText,function(d){
+		var d=d.AS.Results[0].Suggests;
+		var html='';
+		for(var i=0;i<d.length;i++){
+			html+='<li>'+d[i].Txt+'</li>';
+			}
+			$('#search-result').html(html);
+		<!--但服务器端返回数据才执行下列代码，即展示搜索框的样式-->		
+		$('#suggest-search').show().css({
+		top:$('#search-form').offset().top+$('#search-form').height()+20,
+		left:$('#search-form').offset().left,
+		position:'absolute'
+		});
+		},'json');
+});
+<!--当用户点击其他位置时，搜索框消失-->
+$(document).bind('click',function(){
+	$('#suggest-search').hide();
+	});
+<!--动态生成页面要用到事件代理-->	
+$(document).delegate('li','click',function(){
+	var keyword=$(this).text();
+	location.href='http://cn.bing.com/search?q='+keyword;
+	});
+-->

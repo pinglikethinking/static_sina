@@ -1,0 +1,9 @@
+@charset "utf-8";
+.search{
+	width:550px;
+	background-color:#fff;
+	border:5px solide #999;
+	}
+.search ul{
+	list-style:none;
+	}
