@@ -346,11 +346,17 @@ dd{
 	color:#F08650;
 	text-decoration:none;
 	}
+/*等级背景设置*/
 .V{
 	background:url(../imag/V.jpg) no-repeat;
+	display:inline-block;
+	width:33px;
+	height: 15px;
 	}
 .G{
 	background:url(../imag/G.jpg) no-repeat;
+	width:20px;
+	height: 17px;
 	}
 .item_operation {
 	overflow:hidden;
